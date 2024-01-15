@@ -1,7 +1,15 @@
-/// {@template animated_item_menu}
-/// A Very Good Project created by Very Good CLI.
-/// {@endtemplate}
-class AnimatedItemMenu {
-  /// {@macro animated_item_menu}
-  const AnimatedItemMenu();
+import 'package:flutter/material.dart';
+
+class AnimatedItemMenu extends StatefulWidget {
+  const AnimatedItemMenu({super.key});
+
+  @override
+  State<AnimatedItemMenu> createState() => _AnimatedItemMenuState();
+}
+
+class _AnimatedItemMenuState extends State<AnimatedItemMenu> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
 }
