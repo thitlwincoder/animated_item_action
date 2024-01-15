@@ -1,4 +1,4 @@
-import 'package:animated_item_menu/animated_item_menu.dart';
+import 'package:example/src/item_card.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -26,6 +26,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int price = 1199;
+  int qty = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +36,14 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('Animated Item Menu Example'),
       ),
       body: Center(
-        child: AnimatedItemMenu(),
+        child: ItemCard(
+          qty: qty,
+          price: price,
+          onQtyChange: (int value) {
+            qty = value;
+            setState(() {});
+          },
+        ),
       ),
     );
   }
