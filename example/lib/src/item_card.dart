@@ -20,6 +20,22 @@ class ItemCard extends StatelessWidget {
     final duration = Duration(milliseconds: 400);
 
     return AnimatedItemAction(
+      startActions: [
+        IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.pen)),
+        IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.trash)),
+      ],
+      endActions: [
+        IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.add)),
+        IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.minus)),
+      ],
+      builder: (context, isSelected) {
+        return ListTile(
+          title: Text('Item'),
+        );
+      },
+    );
+
+    return AnimatedItemAction(
       duration: duration,
       borderColor: Colors.grey,
       margin: EdgeInsets.all(10),

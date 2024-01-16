@@ -1,7 +1,9 @@
 import 'package:animated_item_action/animated_item_action.dart';
 import 'package:flutter/material.dart';
 
+/// Item Action Widget
 class ItemAction extends StatelessWidget {
+  /// Creates a [ItemAction]
   const ItemAction({
     required this.isSelected,
     required this.actions,
@@ -16,19 +18,41 @@ class ItemAction extends StatelessWidget {
     super.key,
   });
 
+  /// BorderRadius of the item actions.
+  ///
+  /// Defaults is [Radius.circular(5)].
   final Radius radius;
+
+  /// Selected value of the item to animated [ItemAction].
   final bool isSelected;
+
+  /// Duration of the animation.
+  ///
+  /// Default is Duration(milliseconds: 800).
   final Duration duration;
+
+  /// The border color of the item actions.
   final Color borderColor;
+
+  /// The background color of the item actions.
   final Color backgroundColor;
 
+  /// The [switchInCurve] of the items actions animation.
   final Curve switchInCurve;
+
+  /// The [switchOutCurve] of the items actions animation.
   final Curve switchOutCurve;
 
+  /// The widgets list of the item actions.
   final List<Widget> actions;
+
+  /// The position of the item actions.
   final ActionPosition position;
+
+  /// The [transitionBuilder] of the items actions animation.
   final AnimatedSwitcherTransitionBuilder transitionBuilder;
 
+  /// Default transition builder
   static Widget defaultTransitionBuilder(
     Widget child,
     Animation<double> animation,

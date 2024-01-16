@@ -2,7 +2,9 @@ import 'package:animated_item_action/animated_item_action.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+/// Animated Item Action Widget
 class AnimatedItemAction extends StatefulWidget {
+  /// Creates a [AnimatedItemAction].
   const AnimatedItemAction({
     required this.builder,
     super.key,
@@ -10,51 +12,81 @@ class AnimatedItemAction extends StatefulWidget {
     this.padding,
     this.onExit,
     this.onHover,
-    this.duration,
-    this.isSelected,
     this.endActions,
     this.borderColor,
     this.constraints,
     this.startActions,
     this.backgroundColor,
-    this.isSelectOnHover = false,
     this.onSelectedChanged,
+    this.initSelected = false,
+    this.isSelectOnHover = false,
     this.switchInCurve = Curves.easeIn,
     this.switchOutCurve = Curves.easeOut,
     this.radius = const Radius.circular(5),
+    this.duration = const Duration(milliseconds: 800),
     this.actionTransitionBuilder = ItemAction.defaultTransitionBuilder,
   });
 
+  /// BorderRadius of the item actions & child widget
+  ///
+  /// Defaults is [Radius.circular(5)].
   final Radius radius;
 
-  final bool? isSelected;
+  /// Initial selected state of the item actions.
+  ///
+  /// Default is false.
+  final bool initSelected;
 
-  final Duration? duration;
+  /// [duration] of the child & items actions animation.
+  ///
+  /// Default is Duration(milliseconds: 800).
+  final Duration duration;
 
+  /// If true, the item will be selected on hover.
+  ///
+  /// Default is false.
   final bool isSelectOnHover;
 
+  /// The border color of the item actions & child widget.
   final Color? borderColor;
+
+  /// The background color of the item actions & child widget.
   final Color? backgroundColor;
 
+  /// The [switchInCurve] of the child & items actions animation.
   final Curve switchInCurve;
+
+  /// The [switchOutCurve] of the child & items actions animation.
   final Curve switchOutCurve;
 
+  /// The widgets list that show in the end when item is selected.
   final List<Widget>? endActions;
+
+  /// The widgets list that show in the start when item is selected.
   final List<Widget>? startActions;
 
+  /// The builder function that build the child widget.
   final WidgetItemBuilder builder;
 
+  /// The constraints that apply to the child widget.
   final BoxConstraints? constraints;
 
+  /// The margin of the item actions & child widget.
   final EdgeInsetsGeometry? margin;
 
+  /// The padding that apply to the child widget.
   final EdgeInsetsGeometry? padding;
 
+  /// Called when the item selection changed.
   final ValueChanged<bool>? onSelectedChanged;
 
+  /// Called when the pointer is exiting the item.
   final PointerExitEventListener? onExit;
+
+  /// Called when the pointer is hovering over the item.
   final PointerHoverEventListener? onHover;
 
+  /// The [actionTransitionBuilder] of the item actions animation.
   final AnimatedSwitcherTransitionBuilder actionTransitionBuilder;
 
   @override
@@ -72,22 +104,16 @@ class _AnimatedItemActionState extends State<AnimatedItemAction> {
   void initState() {
     super.initState();
     radius = widget.radius;
-    isSelected = widget.isSelected ?? false;
-    duration = widget.duration ?? Duration(milliseconds: 800);
+    duration = widget.duration;
+    isSelected = widget.initSelected;
   }
 
   @override
   void didUpdateWidget(covariant AnimatedItemAction oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.isSelected != widget.isSelected) {
-      isSelected = widget.isSelected ?? false;
-    }
-
-    if (oldWidget.duration != widget.duration) {
-      duration = widget.duration ?? Duration(milliseconds: 800);
-    }
 
     if (oldWidget.radius != widget.radius) radius = widget.radius;
+    if (oldWidget.duration != widget.duration) duration = widget.duration;
   }
 
   @override

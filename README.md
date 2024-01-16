@@ -1,67 +1,63 @@
-# Animated Item Menu
+# animated_item_action
 
-[![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
-[![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
-[![License: MIT][license_badge]][license_link]
+[![pub package](https://img.shields.io/pub/v/animated_item_action.svg?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/animated_item_action)
+[![Last Commits](https://img.shields.io/github/last-commit/thitlwincoder/animated_item_action?logo=git&logoColor=white)](https://github.com/thitlwincoder/animated_item_action/commits/master)
+[![GitHub repo size](https://img.shields.io/github/repo-size/thitlwincoder/animated_item_action)](https://github.com/thitlwincoder/animated_item_action)
+[![License](https://img.shields.io/github/license/thitlwincoder/animated_item_action?logo=open-source-initiative&logoColor=green)](https://github.com/thitlwincoder/animated_item_action/blob/master/LICENSE)
+<br>
+[![Uploaded By](https://img.shields.io/badge/uploaded%20by-thitlwincoder-blue)](https://github.com/thitlwincoder)
 
-A Very Good Project created by Very Good CLI.
+
+Flutter Package to show animated actions in item.
 
 ## Installation 💻
 
-**❗ In order to start using Animated Item Menu you must have the [Flutter SDK][flutter_install_link] installed on your machine.**
+In the `pubspec.yaml` of your flutter project, add the following dependency:
 
-Install via `flutter pub add`:
+```yaml
+dependencies:
+  animated_item_action: <latest_version>
+```
+In your library add the following import:
 
-```sh
-dart pub add animated_item_menu
+```dart
+import 'package:animated_item_action/animated_item_action.dart';
 ```
 
----
+## Getting started
 
-## Continuous Integration 🤖
+Example:
 
-Animated Item Menu comes with a built-in [GitHub Actions workflow][github_actions_link] powered by [Very Good Workflows][very_good_workflows_link] but you can also add your preferred CI/CD solution.
 
-Out of the box, on each pull request and push, the CI `formats`, `lints`, and `tests` the code. This ensures the code remains consistent and behaves correctly as you add functionality or make changes. The project uses [Very Good Analysis][very_good_analysis_link] for a strict set of analysis options used by our team. Code coverage is enforced using the [Very Good Workflows][very_good_coverage_link].
-
----
-
-## Running Tests 🧪
-
-For first time users, install the [very_good_cli][very_good_cli_link]:
-
-```sh
-dart pub global activate very_good_cli
+```dart
+AnimatedItemAction(
+  startActions: [
+    IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.pen)),
+    IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.trash)),
+  ],
+  endActions: [
+    IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.add)),
+    IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.minus)),
+  ],
+  builder: (context, isSelected) {
+    return ListTile(
+      title: Text('Item'),
+    );
+  },
+),
 ```
 
-To run all unit tests:
+## Sponsoring
 
-```sh
-very_good test --coverage
-```
+I'm working on my packages on my free-time, but I don't have as much time as I would. If this package or any other package I created is helping you, please consider to sponsor me so that I can take time to read the issues, fix bugs, merge pull requests and add features to these packages.
 
-To view the generated coverage report you can use [lcov](https://github.com/linux-test-project/lcov).
+## Contributions
 
-```sh
-# Generate Coverage Report
-genhtml coverage/lcov.info -o coverage/
+Feel free to contribute to this project.
 
-# Open Coverage Report
-open coverage/index.html
-```
+If you find a bug or want a feature, but don't know how to fix/implement it, please fill an [issue][issue].  
+If you fixed a bug or implemented a feature, please send a [pull request][pr].
 
-[flutter_install_link]: https://docs.flutter.dev/get-started/install
-[github_actions_link]: https://docs.github.com/en/actions/learn-github-actions
-[license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
-[license_link]: https://opensource.org/licenses/MIT
-[logo_black]: https://raw.githubusercontent.com/VGVentures/very_good_brand/main/styles/README/vgv_logo_black.png#gh-light-mode-only
-[logo_white]: https://raw.githubusercontent.com/VGVentures/very_good_brand/main/styles/README/vgv_logo_white.png#gh-dark-mode-only
-[mason_link]: https://github.com/felangel/mason
-[very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
-[very_good_analysis_link]: https://pub.dev/packages/very_good_analysis
-[very_good_cli_link]: https://pub.dev/packages/very_good_cli
-[very_good_coverage_link]: https://github.com/marketplace/actions/very-good-coverage
-[very_good_ventures_link]: https://verygood.ventures
-[very_good_ventures_link_light]: https://verygood.ventures#gh-light-mode-only
-[very_good_ventures_link_dark]: https://verygood.ventures#gh-dark-mode-only
-[very_good_workflows_link]: https://github.com/VeryGoodOpenSource/very_good_workflows
+<!-- Links -->
+[issue]: https://github.com/thitlwincoder/animated_item_action/issues
+[pr]: https://github.com/thitlwincoder/animated_item_action/pulls
