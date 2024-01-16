@@ -1,4 +1,4 @@
-import 'package:animated_item_menu/animated_item_action.dart';
+import 'package:animated_item_action/animated_item_action.dart';
 import 'package:example/data/extensions/extensions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

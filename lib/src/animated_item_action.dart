@@ -1,4 +1,4 @@
-import 'package:animated_item_menu/animated_item_action.dart';
+import 'package:animated_item_action/animated_item_action.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -8,6 +8,7 @@ class AnimatedItemAction extends StatefulWidget {
     super.key,
     this.margin,
     this.padding,
+    this.onExit,
     this.onHover,
     this.duration,
     this.isSelected,
@@ -16,6 +17,7 @@ class AnimatedItemAction extends StatefulWidget {
     this.constraints,
     this.startActions,
     this.backgroundColor,
+    this.isSelectOnHover = false,
     this.onSelectedChanged,
     this.switchInCurve = Curves.easeIn,
     this.switchOutCurve = Curves.easeOut,
@@ -28,6 +30,8 @@ class AnimatedItemAction extends StatefulWidget {
   final bool? isSelected;
 
   final Duration? duration;
+
+  final bool isSelectOnHover;
 
   final Color? borderColor;
   final Color? backgroundColor;
@@ -48,6 +52,7 @@ class AnimatedItemAction extends StatefulWidget {
 
   final ValueChanged<bool>? onSelectedChanged;
 
+  final PointerExitEventListener? onExit;
   final PointerHoverEventListener? onHover;
 
   final AnimatedSwitcherTransitionBuilder actionTransitionBuilder;
@@ -121,7 +126,22 @@ class _AnimatedItemActionState extends State<AnimatedItemAction> {
               ),
             Expanded(
               child: MouseRegion(
-                onHover: widget.onHover,
+                onHover: (event) {
+                  if (widget.isSelectOnHover) {
+                    isSelected = true;
+                    setState(() {});
+                  }
+
+                  widget.onHover?.call(event);
+                },
+                onExit: (event) {
+                  if (widget.isSelectOnHover) {
+                    isSelected = false;
+                    setState(() {});
+                  }
+
+                  widget.onExit?.call(event);
+                },
                 child: GestureDetector(
                   onTap: () {
                     isSelected = !isSelected;

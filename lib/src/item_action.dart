@@ -1,4 +1,4 @@
-import 'package:animated_item_menu/animated_item_action.dart';
+import 'package:animated_item_action/animated_item_action.dart';
 import 'package:flutter/material.dart';
 
 class ItemAction extends StatelessWidget {
