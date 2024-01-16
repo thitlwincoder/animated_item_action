@@ -10,6 +10,10 @@
 
 Flutter Package to show animated actions in item.
 
+## Preview
+
+![preview][preview]
+
 ## Installation 💻
 
 In the `pubspec.yaml` of your flutter project, add the following dependency:
@@ -59,5 +63,7 @@ If you find a bug or want a feature, but don't know how to fix/implement it, ple
 If you fixed a bug or implemented a feature, please send a [pull request][pr].
 
 <!-- Links -->
+
+[preview]: https://raw.githubusercontent.com/thitlwincoder/animated_item_action/assets/preview.gif
 [issue]: https://github.com/thitlwincoder/animated_item_action/issues
 [pr]: https://github.com/thitlwincoder/animated_item_action/pulls

@@ -1,8 +1,14 @@
+/// The position of the actions.
 enum ActionPosition {
-  left,
-  right;
+  /// Start position
+  start,
 
-  bool get isLeft => this == left;
+  /// End position
+  end;
 
-  bool get isRight => this == right;
+  /// Check if the action position is start
+  bool get isStart => this == start;
+
+  /// Check if the action position is end
+  bool get isEnd => this == end;
 }

@@ -148,6 +148,7 @@ class _AnimatedItemActionState extends State<AnimatedItemAction> {
                 actions: startActions,
                 key: ValueKey('start'),
                 borderColor: borderColor,
+                position: ActionPosition.start,
                 backgroundColor: backgroundColor,
               ),
             Expanded(
@@ -195,6 +196,7 @@ class _AnimatedItemActionState extends State<AnimatedItemAction> {
                 actions: endActions,
                 key: ValueKey('right'),
                 borderColor: borderColor,
+                position: ActionPosition.end,
                 backgroundColor: backgroundColor,
               ),
           ],
@@ -208,15 +210,16 @@ class _AnimatedItemActionState extends State<AnimatedItemAction> {
     required Color borderColor,
     required List<Widget> actions,
     required Color backgroundColor,
+    required ActionPosition position,
   }) {
     return ItemAction(
       key: key,
       radius: radius,
       actions: actions,
+      position: position,
       duration: duration,
       isSelected: isSelected,
       borderColor: borderColor,
-      position: ActionPosition.left,
       backgroundColor: backgroundColor,
       switchInCurve: widget.switchInCurve,
       switchOutCurve: widget.switchOutCurve,

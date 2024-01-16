@@ -96,12 +96,12 @@ class ItemAction extends StatelessWidget {
                 border: Border(
                   top: side,
                   bottom: side,
-                  left: getSide(ActionPosition.left),
-                  right: getSide(ActionPosition.right),
+                  left: getSide(ActionPosition.start),
+                  right: getSide(ActionPosition.end),
                 ),
                 borderRadius: BorderRadius.horizontal(
-                  left: getRadius(ActionPosition.left),
-                  right: getRadius(ActionPosition.right),
+                  left: getRadius(ActionPosition.start),
+                  right: getRadius(ActionPosition.end),
                 ),
               ),
               alignment: Alignment.center,
